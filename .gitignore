@@ -1,1 +1,6 @@
 .DS_Store
+# FIXME add to user specific global ignores
+\#*
+.#*
+~*
+*~
