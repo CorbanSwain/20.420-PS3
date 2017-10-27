@@ -22,7 +22,7 @@ estimate?
         
         fits = curve_fit(data);
         plot_fig3(data,fits);
-        saveAllFigures;
+        saveAllFigures('prb2');
     end
 
 %% Constants
@@ -64,7 +64,7 @@ main;
         data = flipud(data);
         p = plot(log10(lig_concs),data,'.');
         xlabel('log[L], log(pM)');
-        ylabel('Relative Fluoroesence, unitless');
+        ylabel('Relative Fluorescence, unitless');
         legend_vals = strcat(num2str(timepoints')," Hours");
         legend_vals(1) = "15 Minutes";
         legend_vals = flipud(legend_vals);
