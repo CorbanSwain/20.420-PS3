@@ -21,8 +21,10 @@ estimate?
         % plot_fig2(data);
         
         fits = curve_fit(data);
-        plot_fig3(data,fits);
+        f3 = plot_fig3(data,fits);
+        % FIXME - Add residual plot
         saveAllFigures('prb2');
+
     end
 
 %% Constants
@@ -70,17 +72,17 @@ main;
         legend_vals = flipud(legend_vals);
         legend(p, legend_vals,'Location','northwest',...
             'AutoUpdate','off');
+        
     end
 
-    function plot_fig1(data)
-        setupFigure(1,'Binding Isotherms');
+    function fig = plot_fig1(data)
+        fig = etupFigure(1,'Binding Isotherms');
         plot_data_pts(data);
 
     end
 
-    function plot_fig2(data)
-        setupFigure(2,'Binding Timecourses');
-        hold on;
+    function fig = plot_fig2(data)
+        fig = setupFigure(2,'Binding Timecourses');
         p = plot(timepoints,data,'.-');
         xlabel('Time, hours');
         ylabel('Relative Fluoroesence, unitless')
@@ -89,8 +91,8 @@ main;
             'Orientation','horizontal');
     end
 
-    function plot_fig3(data,fits)
-        setupFigure(3,"Overlayed Fits");
+    function fig = plot_fig3(data,fits)
+        fig = setupFigure(3,"Overlayed Fits",[-1691 489 970 396]);
         plot_data_pts(data);
         ax = gca;
         ax.ColorOrderIndex = 1;
