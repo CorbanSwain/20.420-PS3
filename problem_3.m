@@ -1,28 +1,32 @@
 function problem_3
     function main
-        data = gen_data;
+        data = add_noise(gen_data);
+%         data = gen_data;
         corbanFigureDefaults;
-        f1 = plot_fig1(data);
-        [mf, bf] = run_fit(data);
-    
+%         f1 = plot_fig1(data);
+%         saveFigure(f1,'prb3');
+        [mfs, bfs] = run_fit(data);
+        
+        f2 = plot_fig2(data, mfs, bfs);
+        saveFigure(f2, 'prb3');
         % saveAllFigures('prb3');
     end
 
-%% Constants
-exp_fun = @(k,x) 0.5 .* exp(-k(1) .* x) ...
-    + 0.5 .* exp(-k(2) .* x);
+%% Global Variables
 ts = (0:100); % s
 ks = {[1, 10]; [10, 20]; [10, 100]}; % 1 / s
 n = length(ks);
-monoexp_model = @(c1,c2,x) c1 .* exp(-c2 .* x);
-biexp_model = @(c1,c2,c3,c4,x) c1 .* exp(-c2 .* x) ...
-    + c3 .* exp(-c4 .* x);
-c_mono_0 = [0.5, 10];
-c_bi_0 = [0.5, 10, 0.5, 10];
+for i__ = 1:n; ks{i__} = ks{i__} .^ -1; end
+monoexp_model = @(c,x) c(1) .* exp(-c(2) .* x);
+biexp_model = @(c,x) c(1) .* exp(-c(2) .* x) ...
+    + c(3) .* exp(-c(4) .* x);
+fit_opt = 1; % 1 for nlinfit(...) 2 for fit(...)
+
+% Noise
 S = load('Noise.mat','All');
 noise = S.All';
-fit_opt = 2;
 
+%% Run Script
 clc;
 main;
 
@@ -30,10 +34,12 @@ main;
 
 %%% Data Generation
     function data = gen_data
-      data = zeros(n,length(ts));
-      for i = 1:n
-          data(i,:) = exp_fun(ks{i}, ts);
-      end
+        exp_fun = @(k,x) 0.5 .* exp(-k(1) .* x) ...
+            + 0.5 .* exp(-k(2) .* x);
+        data = zeros(n,length(ts));
+        for i = 1:n
+            data(i,:) = exp_fun(ks{i}, ts);
+        end
     end
 
 %%% Addding Noise
@@ -45,27 +51,41 @@ main;
     function [mono_fits, bi_fits] = run_fit(data)
         mono_fits = cell(1,n);
         bi_fits = cell(1,n);
+        
+        % Model Functions
+        monoexp_model_v2 = @(c1, c2, x) ...
+            monoexp_model([c1, c2], x);
+        biexp_model_v2 = @(c1, c2, c3, c4, x) ...
+            biexp_model([c1, c2, c3, c4], x);
+        
+        % Fit Paramerers
+        if fit_opt == 1
+            c_mono_0 = cell(1,n);
+            c_bi_0 = cell(1,n);
+            for i = 1:n
+                c_mono_0{i} = [1, min(ks{i})];
+                c_bi_0{i} = [1, ks{i}(1), 1, ks{i}(2)];
+            end
+        else
+            fo1 = fitoptions('Method','NonlinearLeastSquares', ...
+                'StartPoint', ones(1,2), ...
+                'Lower', [-Inf, 0]);
+            fo2 = fitoptions('Method','NonlinearLeastSquares', ...
+                'StartPoint', ones(1,4), ...
+                'Lower', [-Inf, 0, -Inf, 0]);
+        end
         s1 = struct; s2 = struct;
         x = ts;
-        
-        fo1 = fitoptions('Method','NonlinearLeastSquares', ...
-            'StartPoint', c_mono_0, ...
-            'Lower', [-Inf, 0, -Inf, 0]);
-        fo2 = fitoptions('Method','NonlinearLeastSquares', ...
-            'StartPoint', c_bi_0, ...
-            'Lower', [-Inf, 0, -Inf, 0]);
-        
         for i = 1:n
-            y = data(1,:);
+            y = data(i,:);
             if fit_opt == 1
-                [s1.params, s1.R, ~, ~, ~, ~] = ...
-                    nlinfit(x,y, monoexp_model, c_mono_0);
-                [s2.params, s2.R, ~, ~, ~, ~] = ...
-                    nlinfit(x,y, biexp_model, c_bi_0);
-            else
-                % TODO - implement again with fit function 
-                s1.fitobj = fit(x', y', monoexp_model, fo1); 
-                s2.fitobj = fit(x', y', biexp_model, fo2);
+                [s1.params, s1.R, s1.J, ~, ~, ~] = ...
+                    nlinfit(x,y, monoexp_model, c_mono_0{i});
+                [s2.params, s2.R, s2.J, ~, ~, ~] = ...
+                    nlinfit(x,y, biexp_model, c_bi_0{i});
+            else 
+                s1.fitobj = fit(x', y', monoexp_model_v2, fo1); 
+                s2.fitobj = fit(x', y', biexp_model_v2, fo2);
             end
             mono_fits{i} = s1;
             bi_fits{i} = s2;
@@ -74,24 +94,58 @@ main;
 
 
 %% Figures
-        function fig = plot_fig1(data)
+    
+    function fig = plot_fig1(data)
+        same_screen_pos = [666 551 957 369];
+        diff_screen_pos = [-1044 566 957 369];
         fig = setupFigure(1,'Comparison Figure',...
-            [-1044 566 957 369]);
-        hold on;
-        plot([-100 100],[0 0],'-k','LineWidth',0.5);
-        plot([0 0],[-1 1],'-k','LineWidth',0.5);
-        p1 = plot(ts,data,'o','MarkerSize',5,'LineWidth',1.5);
-        ylabel('Fluorescence, unitless');
-        xlabel('Time, s')
-        leg_labels = compose('k_{1}, k_{2} = %d, %d', ...
-            cell2mat(ks));
+            same_screen_pos);
+        plot_data_points(data)
         ax = gca;
         text(ax,'Interpreter','latex','String',['$$y\left(t\right)='...
             '0.5\exp{\left\{-k_1t\right\}}+'...
             '0.5\exp{\left\{-k_2t\right\}}$$'],...
             'Units','normalized','Position',[0.5 0.85],...
             'HorizontalAlignment','center','FontSize',20)
-        legend(p1, leg_labels);
+    end
+    
+
+    function fig = plot_fig2(data, mfs, bfs)
+        fig = setupFigure(2, 'Data With Fit');
+        plot_data_points(data);
+        ax = gca;
+        if fit_opt == 1; x = -10:0.1:100; end
+        for i = 1:n
+            mf = mfs{i};
+            bf = bfs{i};
+            if fit_opt == 1
+                ax.ColorOrderIndex = i;
+                y = monoexp_model(mf.params,x);
+                plot(x,y,'-');
+%                 disp_eqn(eqn_str,[0.1]) 
+                ax.ColorOrderIndex = i;
+                y = biexp_model(bf.params,x);
+                plot(x,y,'--');
+            else
+                ax.ColorOrderIndex = i;
+                plot(mf.fitobj,'-');
+%                 disp_eqn(eqn_str,[0.1 
+                ax.ColorOrderIndex = i;
+                plot(bf.fitobj,'--');
+            end
+        end
+    end
+
+
+    function plot_data_points(data)
+        plot([-100 100],[0 0],'-k','LineWidth',0.5);
+        plot([0 0],[-1 1],'-k','LineWidth',0.5);
+        p1 = plot(ts,data,'o','MarkerSize',5,'LineWidth',1.5);
+        ylabel('Fluorescence, unitless');
+        xlabel('Time, s')
+        leg_labels = compose('k_{1}, k_{2} = %.2f, %.2f', ...
+            cell2mat(ks));
+        legend(p1, leg_labels, 'AutoUpdate', 'off');
         ylim([-0.2 1]);
         xlim([-3.5 100]);
     end
@@ -131,6 +185,5 @@ main;
         linkaxes([ax1,ax2]);
         ylim([-0.1 1]);
     end
-
 
 end

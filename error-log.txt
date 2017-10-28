@@ -1,0 +1,17 @@
+Error using nlinfit>checkFunVals (line 641)
+The function you provided as the MODELFUN input has returned Inf or NaN values.
+
+Error in nlinfit>LMfit (line 588)
+    if funValCheck && ~isfinite(sse), checkFunVals(r); end
+
+Error in nlinfit (line 276)
+        [beta,J,~,cause,fullr] = LMfit(X,yw, modelw,beta,options,verbose,maxiter);
+
+Error in problem_3/run_fit (line 77)
+                [s2.params, s2.R, ~, ~, ~, ~] = ...
+
+Error in problem_3/main (line 8)
+        [mfs, bfs] = run_fit(data);
+
+Error in problem_3 (line 26)
+main;
