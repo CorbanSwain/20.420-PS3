@@ -243,3 +243,416 @@ F-test: -0.00, p: 0.000000
 
 ^^^^^^^^^^^^^^^^^^ ENDING SCRIPT ^^^^^^^^^^^^^^^^^^^^^
 
+29-Oct-2017 18:41:41
+vvvvvvvvvvvvvvvv BEGINNING SCRIPT vvvvvvvvvvvvvvvvvvvv
+
+No Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 10
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '1.00, 1.62'                                    '0.50, 1.62, 0.50, 1.62'                                                                    
+    <strong>Confidence Intervals</strong>    '(9.91e-01, 1.01e+00), (1.58e+00, 1.66e+00)'    '(-8.88e+14, 8.88e+14), (-2.08e+08, 2.08e+08), (-8.88e+14, 8.88e+14), (-2.08e+08, 2.08e+08)'
+    <strong>R^2                 </strong>    '1.00'                                          '1.00'                                                                                      
+
+F-test: 1.63e-04, p: 1.16e-159
+
+
+**************
+Model #1: k_1 = 10, k_2 = 20
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '1.00, 7.67'                                    '0.50, 7.23, 0.50, 7.23'                                                                    
+    <strong>Confidence Intervals</strong>    '(1.00e+00, 1.00e+00), (7.48e+00, 7.86e+00)'    '(-7.49e+12, 7.49e+12), (-1.06e+12, 1.06e+12), (-7.49e+12, 7.49e+12), (-1.06e+12, 1.06e+12)'
+    <strong>R^2                 </strong>    '1.00'                                          '1.00'                                                                                      
+
+F-test: -2.91e+01, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 10, k_2 = 100
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '1.00, 7.67'                                    '0.50, 7.23, 0.50, 7.23'                                                                    
+    <strong>Confidence Intervals</strong>    '(1.00e+00, 1.00e+00), (7.48e+00, 7.86e+00)'    '(-5.42e+13, 5.42e+13), (-8.34e+11, 8.34e+11), (-5.42e+13, 5.42e+13), (-8.34e+11, 8.34e+11)'
+    <strong>R^2                 </strong>    '1.00'                                          '1.00'                                                                                      
+
+F-test: -2.91e+01, p: 0.00e+00
+
+Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 10
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.91, 1.26'                                    '0.45, 1.26, 0.45, 1.26'                                                                    
+    <strong>Confidence Intervals</strong>    '(7.04e-01, 1.11e+00), (5.64e-01, 1.96e+00)'    '(-1.11e+08, 1.11e+08), (-1.21e+09, 1.21e+09), (-1.11e+08, 1.11e+08), (-1.21e+09, 1.21e+09)'
+    <strong>R^2                 </strong>    '0.45'                                          '0.45'                                                                                      
+
+F-test: -2.46e-08, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 10, k_2 = 20
+                            <strong>                 Monoexp_Fit                 </strong><strong>                       Biexp_Fit                    </strong>
+                            <strong>_____________________________________________</strong>    <strong>________________________________________________</strong>
+
+    <strong>Params              </strong>    '1.07, 18.91'                                    '0.53, 18.43, 0.53, 18.43'                      
+    <strong>Confidence Intervals</strong>    '(8.62e-01, 1.27e+00), (-3.10e+07, 3.10e+07)'    '(NaN, NaN), (NaN, NaN), (NaN, NaN), (NaN, NaN)'
+    <strong>R^2                 </strong>    '0.51'                                           '0.51'                                          
+
+F-test: -1.90e-08, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 10, k_2 = 100
+                            <strong>                 Monoexp_Fit                 </strong><strong>                       Biexp_Fit                    </strong>
+                            <strong>_____________________________________________</strong>    <strong>________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.91, 22.34'                                    '0.46, 14.92, 0.46, 14.92'                      
+    <strong>Confidence Intervals</strong>    '(7.04e-01, 1.12e+00), (-9.98e+08, 9.98e+08)'    '(NaN, NaN), (NaN, NaN), (NaN, NaN), (NaN, NaN)'
+    <strong>R^2                 </strong>    '0.43'                                           '0.43'                                          
+
+F-test: -2.49e-06, p: 0.00e+00
+
+
+
+^^^^^^^^^^^^^^^^^^ ENDING SCRIPT ^^^^^^^^^^^^^^^^^^^^^
+
+29-Oct-2017 18:42:54
+vvvvvvvvvvvvvvvv BEGINNING SCRIPT vvvvvvvvvvvvvvvvvvvv
+
+No Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 1.000000e-01
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.80, 0.16'                                    '0.40, 0.16, 0.40, 0.16'                                                                    
+    <strong>Confidence Intervals</strong>    '(7.59e-01, 8.44e-01), (1.49e-01, 1.75e-01)'    '(-1.23e+07, 1.23e+07), (-5.55e+05, 5.55e+05), (-1.23e+07, 1.23e+07), (-5.55e+05, 5.55e+05)'
+    <strong>R^2                 </strong>    '0.95'                                          '0.95'                                                                                      
+
+F-test: -2.17e-06, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 5.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.97, 0.07'                                    '0.49, 0.07, 0.49, 0.07'                                                                    
+    <strong>Confidence Intervals</strong>    '(9.66e-01, 9.81e-01), (6.60e-02, 6.75e-02)'    '(-9.34e+05, 9.34e+05), (-8.01e+04, 8.01e+04), (-9.34e+05, 9.34e+05), (-8.01e+04, 8.01e+04)'
+    <strong>R^2                 </strong>    '1.00'                                          '1.00'                                                                                      
+
+F-test: -1.28e-06, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 1.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                           Biexp_Fit                                        </strong>
+                            <strong>____________________________________________</strong>    <strong>________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.78, 0.02'                                    '0.50, 0.10, 0.50, 0.01'                                                                
+    <strong>Confidence Intervals</strong>    '(7.53e-01, 8.14e-01), (1.69e-02, 1.93e-02)'    '(5.00e-01, 5.00e-01), (1.00e-01, 1.00e-01), (5.00e-01, 5.00e-01), (1.00e-02, 1.00e-02)'
+    <strong>R^2                 </strong>    '0.91'                                          '1.00'                                                                                  
+
+F-test: 5.51e+22, p: 1.00e+00
+
+Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 1.000000e-01
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.74, 0.15'                                    '-6.70, 0.15, 7.44, 0.15'                                                                   
+    <strong>Confidence Intervals</strong>    '(5.98e-01, 8.83e-01), (1.04e-01, 1.89e-01)'    '(-2.52e+07, 2.52e+07), (-1.12e+04, 1.12e+04), (-2.52e+07, 2.52e+07), (-1.01e+04, 1.01e+04)'
+    <strong>R^2                 </strong>    '0.59'                                          '0.59'                                                                                      
+
+F-test: -2.71e-05, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 5.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.94, 0.06'                                    '0.47, 0.06, 0.47, 0.06'                                                                    
+    <strong>Confidence Intervals</strong>    '(8.43e-01, 1.04e+00), (5.47e-02, 7.42e-02)'    '(-1.40e+07, 1.40e+07), (-2.95e+06, 2.95e+06), (-1.40e+07, 1.40e+07), (-2.95e+06, 2.95e+06)'
+    <strong>R^2                 </strong>    '0.82'                                          '0.82'                                                                                      
+
+F-test: -1.09e-07, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 1.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.78, 0.02'                                    '176.30, 0.02, -175.49, 0.02'                                                               
+    <strong>Confidence Intervals</strong>    '(7.10e-01, 8.46e-01), (1.58e-02, 2.11e-02)'    '(-7.98e+06, 7.98e+06), (-3.86e-01, 4.32e-01), (-7.98e+06, 7.98e+06), (-3.97e-01, 4.43e-01)'
+    <strong>R^2                 </strong>    '0.69'                                          '0.68'                                                                                      
+
+F-test: -8.71e-01, p: 0.00e+00
+
+
+
+^^^^^^^^^^^^^^^^^^ ENDING SCRIPT ^^^^^^^^^^^^^^^^^^^^^
+
+29-Oct-2017 18:43:48
+vvvvvvvvvvvvvvvv BEGINNING SCRIPT vvvvvvvvvvvvvvvvvvvv
+
+<a href="matlab: opentoline('/Users/CorbanSwain/Documents/Repos/20.420/20.420-PS3/problem_3.m',147,1)">147 </a>            results{i} = s;
+dbcont
+<a href="matlab: opentoline('/Users/CorbanSwain/Documents/Repos/20.420/20.420-PS3/problem_3.m',147,1)">147 </a>            results{i} = s;
+dbcont
+<a href="matlab: opentoline('/Users/CorbanSwain/Documents/Repos/20.420/20.420-PS3/problem_3.m',147,1)">147 </a>            results{i} = s;
+if system_dependent('IsDebugMode')==1, dbcont; end
+No Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 1.000000e-01
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.80, 0.16'                                    '0.40, 0.16, 0.40, 0.16'                                                                    
+    <strong>Confidence Intervals</strong>    '(7.59e-01, 8.44e-01), (1.49e-01, 1.75e-01)'    '(-1.23e+07, 1.23e+07), (-5.55e+05, 5.55e+05), (-1.23e+07, 1.23e+07), (-5.55e+05, 5.55e+05)'
+    <strong>R^2                 </strong>    '0.95'                                          '0.95'                                                                                      
+
+F-test: -2.17e-06, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 5.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.97, 0.07'                                    '0.49, 0.07, 0.49, 0.07'                                                                    
+    <strong>Confidence Intervals</strong>    '(9.66e-01, 9.81e-01), (6.60e-02, 6.75e-02)'    '(-9.34e+05, 9.34e+05), (-8.01e+04, 8.01e+04), (-9.34e+05, 9.34e+05), (-8.01e+04, 8.01e+04)'
+    <strong>R^2                 </strong>    '1.00'                                          '1.00'                                                                                      
+
+F-test: -1.28e-06, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 1.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                           Biexp_Fit                                        </strong>
+                            <strong>____________________________________________</strong>    <strong>________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.78, 0.02'                                    '0.50, 0.10, 0.50, 0.01'                                                                
+    <strong>Confidence Intervals</strong>    '(7.53e-01, 8.14e-01), (1.69e-02, 1.93e-02)'    '(5.00e-01, 5.00e-01), (1.00e-01, 1.00e-01), (5.00e-01, 5.00e-01), (1.00e-02, 1.00e-02)'
+    <strong>R^2                 </strong>    '0.91'                                          '1.00'                                                                                  
+
+F-test: 5.51e+22, p: 1.00e+00
+
+<a href="matlab: opentoline('/Users/CorbanSwain/Documents/Repos/20.420/20.420-PS3/problem_3.m',147,1)">147 </a>            results{i} = s;
+if system_dependent('IsDebugMode')==1, dbcont; end
+Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 1.000000e-01
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.74, 0.15'                                    '-6.70, 0.15, 7.44, 0.15'                                                                   
+    <strong>Confidence Intervals</strong>    '(5.98e-01, 8.83e-01), (1.04e-01, 1.89e-01)'    '(-2.52e+07, 2.52e+07), (-1.12e+04, 1.12e+04), (-2.52e+07, 2.52e+07), (-1.01e+04, 1.01e+04)'
+    <strong>R^2                 </strong>    '0.59'                                          '0.59'                                                                                      
+
+F-test: -2.71e-05, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 5.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.94, 0.06'                                    '0.47, 0.06, 0.47, 0.06'                                                                    
+    <strong>Confidence Intervals</strong>    '(8.43e-01, 1.04e+00), (5.47e-02, 7.42e-02)'    '(-1.40e+07, 1.40e+07), (-2.95e+06, 2.95e+06), (-1.40e+07, 1.40e+07), (-2.95e+06, 2.95e+06)'
+    <strong>R^2                 </strong>    '0.82'                                          '0.82'                                                                                      
+
+F-test: -1.09e-07, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 1.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.78, 0.02'                                    '176.30, 0.02, -175.49, 0.02'                                                               
+    <strong>Confidence Intervals</strong>    '(7.10e-01, 8.46e-01), (1.58e-02, 2.11e-02)'    '(-7.98e+06, 7.98e+06), (-3.86e-01, 4.32e-01), (-7.98e+06, 7.98e+06), (-3.97e-01, 4.43e-01)'
+    <strong>R^2                 </strong>    '0.69'                                          '0.68'                                                                                      
+
+F-test: -8.71e-01, p: 0.00e+00
+
+
+
+^^^^^^^^^^^^^^^^^^ ENDING SCRIPT ^^^^^^^^^^^^^^^^^^^^^
+
+29-Oct-2017 18:53:03
+vvvvvvvvvvvvvvvv BEGINNING SCRIPT vvvvvvvvvvvvvvvvvvvv
+
+No Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 1.000000e-01
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.80, 0.16'                                    '0.40, 0.16, 0.40, 0.16'                                                                    
+    <strong>Confidence Intervals</strong>    '(7.59e-01, 8.44e-01), (1.49e-01, 1.75e-01)'    '(-1.23e+07, 1.23e+07), (-5.55e+05, 5.55e+05), (-1.23e+07, 1.23e+07), (-5.55e+05, 5.55e+05)'
+    <strong>R^2                 </strong>    '0.95'                                          '0.95'                                                                                      
+
+F-test: -2.17e-06, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 5.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.97, 0.07'                                    '0.49, 0.07, 0.49, 0.07'                                                                    
+    <strong>Confidence Intervals</strong>    '(9.66e-01, 9.81e-01), (6.60e-02, 6.75e-02)'    '(-9.34e+05, 9.34e+05), (-8.01e+04, 8.01e+04), (-9.34e+05, 9.34e+05), (-8.01e+04, 8.01e+04)'
+    <strong>R^2                 </strong>    '1.00'                                          '1.00'                                                                                      
+
+F-test: -1.28e-06, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 1.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                           Biexp_Fit                                        </strong>
+                            <strong>____________________________________________</strong>    <strong>________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.78, 0.02'                                    '0.50, 0.10, 0.50, 0.01'                                                                
+    <strong>Confidence Intervals</strong>    '(7.53e-01, 8.14e-01), (1.69e-02, 1.93e-02)'    '(5.00e-01, 5.00e-01), (1.00e-01, 1.00e-01), (5.00e-01, 5.00e-01), (1.00e-02, 1.00e-02)'
+    <strong>R^2                 </strong>    '0.91'                                          '1.00'                                                                                  
+
+F-test: 5.51e+22, p: 1.00e+00
+
+Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 1.000000e-01
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.74, 0.15'                                    '-6.70, 0.15, 7.44, 0.15'                                                                   
+    <strong>Confidence Intervals</strong>    '(5.98e-01, 8.83e-01), (1.04e-01, 1.89e-01)'    '(-2.52e+07, 2.52e+07), (-1.12e+04, 1.12e+04), (-2.52e+07, 2.52e+07), (-1.01e+04, 1.01e+04)'
+    <strong>R^2                 </strong>    '0.59'                                          '0.59'                                                                                      
+
+F-test: -2.71e-05, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 5.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.94, 0.06'                                    '0.47, 0.06, 0.47, 0.06'                                                                    
+    <strong>Confidence Intervals</strong>    '(8.43e-01, 1.04e+00), (5.47e-02, 7.42e-02)'    '(-1.40e+07, 1.40e+07), (-2.95e+06, 2.95e+06), (-1.40e+07, 1.40e+07), (-2.95e+06, 2.95e+06)'
+    <strong>R^2                 </strong>    '0.82'                                          '0.82'                                                                                      
+
+F-test: -1.09e-07, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 1.000000e-01, k_2 = 1.000000e-02
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.78, 0.02'                                    '176.30, 0.02, -175.49, 0.02'                                                               
+    <strong>Confidence Intervals</strong>    '(7.10e-01, 8.46e-01), (1.58e-02, 2.11e-02)'    '(-7.98e+06, 7.98e+06), (-3.86e-01, 4.32e-01), (-7.98e+06, 7.98e+06), (-3.97e-01, 4.43e-01)'
+    <strong>R^2                 </strong>    '0.69'                                          '0.68'                                                                                      
+
+F-test: -8.71e-01, p: 0.00e+00
+
+
+
+^^^^^^^^^^^^^^^^^^ ENDING SCRIPT ^^^^^^^^^^^^^^^^^^^^^
+
+29-Oct-2017 18:55:00
+vvvvvvvvvvvvvvvv BEGINNING SCRIPT vvvvvvvvvvvvvvvvvvvv
+
+No Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 10
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '1.00, 1.62'                                    '0.50, 1.62, 0.50, 1.62'                                                                    
+    <strong>Confidence Intervals</strong>    '(9.91e-01, 1.01e+00), (1.58e+00, 1.66e+00)'    '(-8.88e+14, 8.88e+14), (-2.08e+08, 2.08e+08), (-8.88e+14, 8.88e+14), (-2.08e+08, 2.08e+08)'
+    <strong>R^2                 </strong>    '1.00'                                          '1.00'                                                                                      
+
+F-test: 1.63e-04, p: 1.16e-159
+
+
+**************
+Model #1: k_1 = 10, k_2 = 20
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '1.00, 7.67'                                    '0.50, 7.23, 0.50, 7.23'                                                                    
+    <strong>Confidence Intervals</strong>    '(1.00e+00, 1.00e+00), (7.48e+00, 7.86e+00)'    '(-7.49e+12, 7.49e+12), (-1.06e+12, 1.06e+12), (-7.49e+12, 7.49e+12), (-1.06e+12, 1.06e+12)'
+    <strong>R^2                 </strong>    '1.00'                                          '1.00'                                                                                      
+
+F-test: -2.91e+01, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 10, k_2 = 100
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '1.00, 7.67'                                    '0.50, 7.23, 0.50, 7.23'                                                                    
+    <strong>Confidence Intervals</strong>    '(1.00e+00, 1.00e+00), (7.48e+00, 7.86e+00)'    '(-5.42e+13, 5.42e+13), (-8.34e+11, 8.34e+11), (-5.42e+13, 5.42e+13), (-8.34e+11, 8.34e+11)'
+    <strong>R^2                 </strong>    '1.00'                                          '1.00'                                                                                      
+
+F-test: -2.91e+01, p: 0.00e+00
+
+Noise
+
+**************
+Model #1: k_1 = 1, k_2 = 10
+                            <strong>                Monoexp_Fit                 </strong><strong>                                             Biexp_Fit                                          </strong>
+                            <strong>____________________________________________</strong>    <strong>____________________________________________________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.91, 1.26'                                    '0.45, 1.26, 0.45, 1.26'                                                                    
+    <strong>Confidence Intervals</strong>    '(7.04e-01, 1.11e+00), (5.64e-01, 1.96e+00)'    '(-1.11e+08, 1.11e+08), (-1.21e+09, 1.21e+09), (-1.11e+08, 1.11e+08), (-1.21e+09, 1.21e+09)'
+    <strong>R^2                 </strong>    '0.45'                                          '0.45'                                                                                      
+
+F-test: -2.46e-08, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 10, k_2 = 20
+                            <strong>                 Monoexp_Fit                 </strong><strong>                       Biexp_Fit                    </strong>
+                            <strong>_____________________________________________</strong>    <strong>________________________________________________</strong>
+
+    <strong>Params              </strong>    '1.07, 18.91'                                    '0.53, 18.43, 0.53, 18.43'                      
+    <strong>Confidence Intervals</strong>    '(8.62e-01, 1.27e+00), (-3.10e+07, 3.10e+07)'    '(NaN, NaN), (NaN, NaN), (NaN, NaN), (NaN, NaN)'
+    <strong>R^2                 </strong>    '0.51'                                           '0.51'                                          
+
+F-test: -1.90e-08, p: 0.00e+00
+
+
+**************
+Model #1: k_1 = 10, k_2 = 100
+                            <strong>                 Monoexp_Fit                 </strong><strong>                       Biexp_Fit                    </strong>
+                            <strong>_____________________________________________</strong>    <strong>________________________________________________</strong>
+
+    <strong>Params              </strong>    '0.91, 22.34'                                    '0.46, 14.92, 0.46, 14.92'                      
+    <strong>Confidence Intervals</strong>    '(7.04e-01, 1.12e+00), (-9.98e+08, 9.98e+08)'    '(NaN, NaN), (NaN, NaN), (NaN, NaN), (NaN, NaN)'
+    <strong>R^2                 </strong>    '0.43'                                           '0.43'                                          
+
+F-test: -2.49e-06, p: 0.00e+00
+
+
+
+^^^^^^^^^^^^^^^^^^ ENDING SCRIPT ^^^^^^^^^^^^^^^^^^^^^
+

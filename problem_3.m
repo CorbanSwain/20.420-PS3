@@ -3,16 +3,16 @@ function problem_3
         data = gen_data;
         corbanFigureDefaults;
         fits = run_fit(data);
-        f2 = plot_datafit_fig(data, fits, 2);
-        saveFigure(f2, 'prb3-');
+%         f2 = plot_datafit_fig(data, fits, 2);
+%         saveFigure(f2, 'prb3-');
         stats = calc_fit_stats(fits);
         ftest_out = ftest(stats);
         print_stats("No Noise", stats, ftest_out);
         
         data = add_noise(data);
         fits = run_fit(data);
-        f3 = plot_datafit_fig(data, fits, 3);
-        saveFigure(f3, 'prb3-Noise');
+%         f3 = plot_datafit_fig(data, fits, 3);
+%         saveFigure(f3, 'prb3-Noise');
         stats = calc_fit_stats(fits);
         ftest_out = ftest(stats);
         print_stats("Noise", stats, ftest_out);
@@ -175,7 +175,7 @@ diary off;
                 'R^2'};
             T.Properties.VariableNames = {'Monoexp_Fit';'Biexp_Fit'};
             disp(T)
-            fprintf('F-test: %.2f, p: %2f\n\n',ft.f_stat, ft.p_val);
+            fprintf('F-test: %.2e, p: %.2e\n\n',ft.f_stat, ft.p_val);
             
             %{
             
