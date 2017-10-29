@@ -3,7 +3,7 @@ function problem_3
         data = gen_data;
         corbanFigureDefaults;
         fits = run_fit(data);
-        f2 = plot_fig2(data, fits);
+        f2 = plot_datafit_fig(data, fits, 2);
         saveFigure(f2, 'prb3-');
         stats = calc_fit_stats(fits);
         ftest_out = ftest(stats);
@@ -11,7 +11,7 @@ function problem_3
         
         data = add_noise(data);
         fits = run_fit(data);
-        f3 = plot_fig2(data, fits);
+        f3 = plot_datafit_fig(data, fits, 3);
         saveFigure(f3, 'prb3-Noise');
         stats = calc_fit_stats(fits);
         ftest_out = ftest(stats);
@@ -31,6 +31,9 @@ fit_opt = 2; % 1 for nlinfit(...) 2 for fit(...)
 % Noise
 S = load('Noise.mat','All');
 noise = S.All';
+
+% Figure GLobal Var
+num_runs = 0;
 
 %% Run Script
 clc;
@@ -151,14 +154,14 @@ main;
             
             mono = cell(3,1);
             mono{1} = sprintf('%.2f, %.2f',sm.params);
-            mono{2} = sprintf('(%.2f, %.2f), (%.2f, %.2f)', ...
+            mono{2} = sprintf('(%.2e, %.2e), (%.2e, %.2e)', ...
                 sm.conf(:,1), sm.conf(:,2));
             mono{3} = sprintf('%.2f',sm.rsq);
             
             bi = cell(3,1);
             bi{1} = sprintf('%.2f, %.2f',sb.params);
-            bi{2} = sprintf(['(%.2f, %.2f), (%.2f, %.2f),' ...
-                ' (%.2f, %.2f), (%.2f, %.2f)'], ...
+            bi{2} = sprintf(['(%.2e, %.2e), (%.2e, %.2e),' ...
+                ' (%.2e, %.2e), (%.2e, %.2e)'], ...
                 sb.conf(:,1), sb.conf(:,2),...
                 sb.conf(:,3), sb.conf(:,4));
             bi{3} = sprintf('%.2f',sb.rsq);
@@ -206,8 +209,10 @@ main;
             'HorizontalAlignment','center','FontSize',20)
     end
     
-    function fig = plot_fig2(data, fits)
-        fig = setupFigure(2, 'Data With Fit');
+    function fig = plot_datafit_fig(data, fits, num)
+        num_runs = num_runs + 1;
+        locs = {[44 409 959 532]; [679 58 959 532]};
+        fig = setupFigure(num, 'Data With Fit', locs{num_runs});
         plot_data_points(data);
         plot(-10, -10, '-k','DisplayName','Mono-exponential Fit');
         plot(-10, -10, '--k','DisplayName','Bi-exponential Fit');
