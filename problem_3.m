@@ -1,17 +1,21 @@
 function problem_3
     function main
-        data = add_noise(gen_data);
         data = gen_data;
         corbanFigureDefaults;
-%         f1 = plot_fig1(data);
-%         saveFigure(f1,'prb3');
         fits = run_fit(data);
-        
         f2 = plot_fig2(data, fits);
-        saveFigure(f2, 'prb3');
+        saveFigure(f2, 'prb3-');
         stats = calc_fit_stats(fits);
-        
         ftest_out = ftest(stats);
+        print_stats("No Noise", stats, ftest_out);
+        
+        data = add_noise(data);
+        fits = run_fit(data);
+        f3 = plot_fig2(data, fits);
+        saveFigure(f2, 'prb3-Noise');
+        stats = calc_fit_stats(fits);
+        ftest_out = ftest(stats);
+        print_stats("Noise", stats, ftest_out);
     end
 
 %% Global Variables
@@ -85,8 +89,10 @@ main;
             else
                 [s1.fitobj, s1.gof, s1.output] ...
                     = fit(x', y', monoexp_model_v2, fo1); 
+                s1.params = coeffvalues(s1.fitobj);
                 [s2.fitobj, s2.gof, s2.output] ...
                     = fit(x', y', biexp_model_v2, fo2);
+                s2.params = coeffvalues(s2.fitobj);
             end
             fits{1,i} = s1;
             fits{2,i} = s2;
@@ -134,6 +140,57 @@ main;
         end
     end
 
+%%% Displaying Values
+    function print_stats(descr, stats, ftest_out)
+        disp(descr);
+        for i = 1:n
+            [sm, sb] = stats{:,i};
+            ft = ftest_out{i};
+            fprintf('\n**************\n');
+            fprintf('Model #1: k_1 = %d, k_2 = %d\n', ks{i});
+            
+            mono = cell(3,1);
+            mono{1} = sprintf('%.2f, %.2f',sm.params);
+            mono{2} = sprintf('(%.2f, %.2f), (%.2f, %.2f)', ...
+                sm.conf(:,1), sm.conf(:,2));
+            mono{3} = sprintf('%.2f',sm.rsq);
+            
+            bi = cell(3,1);
+            bi{1} = sprintf('%.2f, %.2f',sb.params);
+            bi{2} = sprintf(['(%.2f, %.2f), (%.2f, %.2f),' ...
+                ' (%.2f, %.2f), (%.2f, %.2f)'], ...
+                sb.conf(:,1), sb.conf(:,2),...
+                sb.conf(:,3), sb.conf(:,4));
+            bi{3} = sprintf('%.2f',sb.rsq);
+            T = table(mono,bi);
+            T.Properties.RowNames = {'Params'; 'Confidence Intervals'; ...
+                'R^2'};
+            T.Properties.VariableNames = {'Monoexp_Fit';'Biexp_Fit'};
+            disp(T)
+            fprintf('F-test: %.2f, p: %2f\n\n',ft.f_stat, ft.p_val);
+            
+            %{
+            
+            Model 1: k_1 = ___, k_2 = ___
+            
+            Model Sampled at 1/s:
+            
+                                     MONO    |   BI
+            
+            PPARAMETERS                      |
+            CONFIDENCE INTERVALS
+            R^2
+            
+            F Ration Test:
+            F VALUE
+            P VALUE
+
+            %}
+            
+            
+        end
+    end
+
 %% Figures  
     function fig = plot_fig1(data)
         same_screen_pos = [666 551 957 369];
@@ -156,10 +213,10 @@ main;
         plot(-10, -10, '--k','DisplayName','Bi-exponential Fit');
         legend('AutoUpdate', 'off');
         ax = gca;
-        if fit_opt == 1; x = -10:0.1:100; end
+        if true; x = -10:0.1:100; end
         for i = 1:n
             [mf, bf] = fits{:,i};
-            if fit_opt == 1
+            if true
                 ax.ColorOrderIndex = i;
                 y = monoexp_model(mf.params,x);
                 plot(x,y,'-');
