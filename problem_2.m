@@ -119,7 +119,7 @@ main;
                 Kd_str = sprintf('%.0f\\times10^{%d}',bas_val,exp_val);
             end
             if ind == 5
-                Kd_str = "K_{d} = " + Kd_str;
+                Kd_str = "k_{obs} = " + Kd_str;
             end
             text(text_x_pos + 0.25,text_y_pos + y_fudge(ind), Kd_str,...
                 'HorizontalAlignment','center',...
@@ -128,6 +128,12 @@ main;
                 'FontSize',16,...
                 'Rotation',angle * 1.75);
         end
+        ax = gca;
+        text(ax,'Interpreter','latex','String',['$$y\left(\left[L\right]\right)='...
+            '\frac{\left[L\right]}{\left[L\right]+k_{obs}}$$'],...
+            'Units','normalized','Position',[0.5 0.8],...
+            'HorizontalAlignment','center','FontSize',25)
+        
     end
 
     
