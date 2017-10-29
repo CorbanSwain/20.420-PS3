@@ -37,7 +37,12 @@ num_runs = 0;
 
 %% Run Script
 clc;
+diary('problem_3_diary.txt');
+disp(datestr(now));
+fprintf('vvvvvvvvvvvvvvvv BEGINNING SCRIPT vvvvvvvvvvvvvvvvvvvv\n\n');
 main;
+fprintf('\n\n^^^^^^^^^^^^^^^^^^ ENDING SCRIPT ^^^^^^^^^^^^^^^^^^^^^\n\n');
+diary off;
 
 %% Implementation
 
@@ -159,7 +164,7 @@ main;
             mono{3} = sprintf('%.2f',sm.rsq);
             
             bi = cell(3,1);
-            bi{1} = sprintf('%.2f, %.2f',sb.params);
+            bi{1} = sprintf('%.2f, %.2f, %.2f, %.2f',sb.params);
             bi{2} = sprintf(['(%.2e, %.2e), (%.2e, %.2e),' ...
                 ' (%.2e, %.2e), (%.2e, %.2e)'], ...
                 sb.conf(:,1), sb.conf(:,2),...
