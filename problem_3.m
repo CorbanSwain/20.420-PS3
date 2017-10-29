@@ -12,7 +12,7 @@ function problem_3
         data = add_noise(data);
         fits = run_fit(data);
         f3 = plot_fig2(data, fits);
-        saveFigure(f2, 'prb3-Noise');
+        saveFigure(f3, 'prb3-Noise');
         stats = calc_fit_stats(fits);
         ftest_out = ftest(stats);
         print_stats("Noise", stats, ftest_out);
