@@ -3,16 +3,16 @@ function problem_3
         data = gen_data;
         corbanFigureDefaults;
         fits = run_fit(data);
-        f2 = plot_datafit_fig(data, fits, 2);
-        saveFigure(f2, 'prb3-');
+%         f2 = plot_datafit_fig(data, fits, 2);
+%         saveFigure(f2, 'prb3-');
         stats = calc_fit_stats(fits);
         ftest_out = ftest(stats);
         print_stats("No Noise", stats, ftest_out);
         
         data = add_noise(data);
         fits = run_fit(data);
-        f3 = plot_datafit_fig(data, fits, 3);
-        saveFigure(f3, 'prb3-Noise');
+%         f3 = plot_datafit_fig(data, fits, 3);
+%         saveFigure(f3, 'prb3-Noise');
         stats = calc_fit_stats(fits);
         ftest_out = ftest(stats);
         print_stats("Noise", stats, ftest_out);
@@ -145,13 +145,19 @@ diary off;
         results = cell(1,n);
         for i = 1:n
             s = struct;
-            ss_null = stats{1,i}.ss;
-            ss_alt = stats{2,i}.ss;
+            ss_null_other = stats{1,i}.ss;
+            ss_alt_other = stats{2,i}.ss;
+            ss_null = sum(stats{1,i}.res .^ 2);
+            ss_alt = sum(stats{2,i}.res .^ 2);
             df_null = stats{1,i}.df;
             df_alt = stats{2,i}.df;
-            s.f_stat = ((ss_null - ss_alt) ./ ss_alt) ...
+            s.f_stat_other = ((ss_null - ss_alt) ./ ss_alt) ...
                 ./ ((df_null - df_alt) ./ df_alt);
-            s.p_val = fcdf(s.f_stat,df_null,df_alt);
+            s.p_val_other = 1 - fcdf(s.f_stat_other,df_null,df_alt);
+            
+            s.f_stat = ((ss_null - ss_alt) ./ (ss_alt)) ...
+                ./ ((4 - 2) ./ (101 - 4 - 1));
+            s.p_val = 1 - fcdf(s.f_stat, (4 - 2), (101 - 4));
             results{i} = s;
         end
     end
