@@ -3,7 +3,7 @@ function problem_3
         data = gen_data;
         corbanFigureDefaults;
         fits = run_fit(data);
-%         f2 = plot_datafit_fig(data, fits, 2);
+        f2 = plot_datafit_fig(data, fits, 2);
 %         saveFigure(f2, 'prb3-');
         stats = calc_fit_stats(fits);
         ftest_out = ftest(stats);
@@ -11,7 +11,7 @@ function problem_3
         
         data = add_noise(data);
         fits = run_fit(data);
-%         f3 = plot_datafit_fig(data, fits, 3);
+        f3 = plot_datafit_fig(data, fits, 3);
 %         saveFigure(f3, 'prb3-Noise');
         stats = calc_fit_stats(fits);
         ftest_out = ftest(stats);
@@ -22,7 +22,7 @@ function problem_3
 ts = (0:100); % s
 ks = {[1, 10]; [10, 20]; [10, 100]}; % 1 / s
 n = length(ks);
-% for i__ = 1:n; ks{i__} = ks{i__} .^ -1; end
+for i__ = 1:n; ks{i__} = ks{i__} .^ -1; end
 monoexp_model = @(c,x) c(1) .* exp(-c(2) .* x);
 biexp_model = @(c,x) c(1) .* exp(-c(2) .* x) ...
     + c(3) .* exp(-c(4) .* x);
@@ -37,7 +37,7 @@ num_runs = 0;
 
 %% Run Script
 clc;
-diary('problem_3_diary.txt');
+%diary('problem_3_diary.txt');
 disp(datestr(now));
 fprintf('vvvvvvvvvvvvvvvv BEGINNING SCRIPT vvvvvvvvvvvvvvvvvvvv\n\n');
 main;
